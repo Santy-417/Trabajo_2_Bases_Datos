@@ -762,11 +762,11 @@
             "product_id": 10,
             "order_id": null
         },
-        {
-            "discount_name": "Clearance Sale",
-            "discount_percent": 50.00,
-            "product_id": 1,
-            "order_id": null
-        }
+            {
+                "discount_name": "Clearance Sale",
+                "discount_percent": 50.00,
+                "product_id": 1,
+                "order_id": null
+            }
     ]
 }
