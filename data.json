@@ -1,0 +1,772 @@
+{
+    "customers": [
+        {
+            "full_name": "John Doe",
+            "email": "john.doe@example.com",
+            "phone": "123-456-7890",
+            "address": "123 Elm St, Springfield"
+        },
+        {
+            "full_name": "Jane Smith",
+            "email": "jane.smith@example.com",
+            "phone": "234-567-8901",
+            "address": "456 Oak St, Springfield"
+        },
+        {
+            "full_name": "Alice Johnson",
+            "email": "alice.johnson@example.com",
+            "phone": "345-678-9012",
+            "address": "789 Pine St, Springfield"
+        },
+        {
+            "full_name": "Bob Brown",
+            "email": "bob.brown@example.com",
+            "phone": "456-789-0123",
+            "address": "101 Maple St, Springfield"
+        },
+        {
+            "full_name": "Charlie Davis",
+            "email": "charlie.davis@example.com",
+            "phone": "567-890-1234",
+            "address": "202 Birch St, Springfield"
+        },
+        {
+            "full_name": "Diana Evans",
+            "email": "diana.evans@example.com",
+            "phone": "678-901-2345",
+            "address": "303 Cedar St, Springfield"
+        },
+        {
+            "full_name": "Ethan Foster",
+            "email": "ethan.foster@example.com",
+            "phone": "789-012-3456",
+            "address": "404 Walnut St, Springfield"
+        },
+        {
+            "full_name": "Fiona Green",
+            "email": "fiona.green@example.com",
+            "phone": "890-123-4567",
+            "address": "505 Cherry St, Springfield"
+        },
+        {
+            "full_name": "George Harris",
+            "email": "george.harris@example.com",
+            "phone": "901-234-5678",
+            "address": "606 Ash St, Springfield"
+        },
+        {
+            "full_name": "Hannah Ivers",
+            "email": "hannah.ivers@example.com",
+            "phone": "012-345-6789",
+            "address": "707 Fir St, Springfield"
+        },
+        {
+            "full_name": "Ian Johnson",
+            "email": "ian.johnson@example.com",
+            "phone": "123-456-7891",
+            "address": "808 Spruce St, Springfield"
+        },
+        {
+            "full_name": "Julia King",
+            "email": "julia.king@example.com",
+            "phone": "234-567-8902",
+            "address": "909 Hemlock St, Springfield"
+        },
+        {
+            "full_name": "Kevin Lee",
+            "email": "kevin.lee@example.com",
+            "phone": "345-678-9013",
+            "address": "1010 Larch St, Springfield"
+        },
+        {
+            "full_name": "Laura Miller",
+            "email": "laura.miller@example.com",
+            "phone": "456-789-0124",
+            "address": "1111 Yew St, Springfield"
+        },
+        {
+            "full_name": "Mike Nelson",
+            "email": "mike.nelson@example.com",
+            "phone": "567-890-1235",
+            "address": "1212 Redwood St, Springfield"
+        },
+        {
+            "full_name": "Nina Connor",
+            "email": "nina.oconnor@example.com",
+            "phone": "678-901-2346",
+            "address": "1313 Dogwood St, Springfield"
+        },
+        {
+            "full_name": "Oscar Perez",
+            "email": "oscar.perez@example.com",
+            "phone": "789-012-3457",
+            "address": "1414 Magnolia St, Springfield"
+        },
+        {
+            "full_name": "Paula Quinn",
+            "email": "paula.quinn@example.com",
+            "phone": "890-123-4568",
+            "address": "1515 Willow St, Springfield"
+        },
+        {
+            "full_name": "Quincy Roberts",
+            "email": "quincy.roberts@example.com",
+            "phone": "901-234-5679",
+            "address": "1616 Poplar St, Springfield"
+        },
+        {
+            "full_name": "Rachel Smith",
+            "email": "rachel.smith@example.com",
+            "phone": "012-345-6780",
+            "address": "1717 Sycamore St, Springfield"
+        },
+        {
+            "full_name": "Steve Taylor",
+            "email": "steve.taylor@example.com",
+            "phone": "123-456-7892",
+            "address": "1818 Elm St, Springfield"
+        }
+    ],
+    "employees": [
+        {
+            "full_name": "Alice Adams",
+            "position": "Manager",
+            "hire_date": "2020-01-15",
+            "salary": 60000.00
+        },
+        {
+            "full_name": "Bob Brown",
+            "position": "Chef",
+            "hire_date": "2019-03-22",
+            "salary": 45000.00
+        },
+        {
+            "full_name": "Charlie Clark",
+            "position": "Delivery Driver",
+            "hire_date": "2021-05-10",
+            "salary": 35000.00
+        },
+        {
+            "full_name": "Diana Davis",
+            "position": "Cashier",
+            "hire_date": "2020-07-30",
+            "salary": 30000.00
+        },
+        {
+            "full_name": "Ethan Evans",
+            "position": "Chef",
+            "hire_date": "2018-11-12",
+            "salary": 45000.00
+        },
+        {
+            "full_name": "Fiona Foster",
+            "position": "Manager",
+            "hire_date": "2019-02-20",
+            "salary": 60000.00
+        },
+        {
+            "full_name": "George Green",
+            "position": "Delivery Driver",
+            "hire_date": "2021-06-15",
+            "salary": 35000.00
+        },
+        {
+            "full_name": "Hannah Harris",
+            "position": "Cashier",
+            "hire_date": "2020-08-25",
+            "salary": 30000.00
+        },
+        {
+            "full_name": "Ian Ivers",
+            "position": "Chef",
+            "hire_date": "2019-04-18",
+            "salary": 45000.00
+        },
+        {
+            "full_name": "Julia Johnson",
+            "position": "Manager",
+            "hire_date": "2020-09-10",
+            "salary": 60000.00
+        },
+        {
+            "full_name": "Kevin King",
+            "position": "Delivery Driver",
+            "hire_date": "2021-07-20",
+            "salary": 35000.00
+        },
+        {
+            "full_name": "Laura Lee",
+            "position": "Cashier",
+            "hire_date": "2020-10-05",
+            "salary": 30000.00
+        },
+        {
+            "full_name": "Mike Miller",
+            "position": "Chef",
+            "hire_date": "2018-12-01",
+            "salary": 45000.00
+        },
+        {
+            "full_name": "Nina Nelson",
+            "position": "Manager",
+            "hire_date": "2019-01-15",
+            "salary": 60000.00
+        },
+        {
+            "full_name": "Oscar O'Connor",
+            "position": "Delivery Driver",
+            "hire_date": "2021-08-30",
+            "salary": 35000.00
+        },
+        {
+            "full_name": "Paula Perez",
+            "position": "Cashier",
+            "hire_date": "2020-11-12",
+            "salary": 30000.00
+        },
+        {
+            "full_name": "Quincy Quinn",
+            "position": "Chef",
+            "hire_date": "2019-03-05",
+            "salary": 45000.00
+        },
+        {
+            "full_name": "Rachel Roberts",
+            "position": "Manager",
+            "hire_date": "2020-12-20",
+            "salary": 60000.00
+        },
+        {
+            "full_name": "Steve Smith",
+            "position": "Delivery Driver",
+            "hire_date": "2021-09-15",
+            "salary": 35000.00
+        },
+        {
+            "full_name": "Tina Taylor",
+            "position": "Cashier",
+            "hire_date": "2020-10-30",
+            "salary": 30000.00
+        },
+        {
+            "full_name": "Ursula Underwood",
+            "position": "Chef",
+            "hire_date": "2018-11-15",
+            "salary": 45000.00
+        }
+    ],
+    "suppliers": [
+        {
+            "supplier_name": "Supplier One",
+            "contact_email": "contact@supplierone.com",
+            "contact_phone": "111-222-3333",
+            "address": "123 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Two",
+            "contact_email": "contact@suppliertwo.com",
+            "contact_phone": "222-333-4444",
+            "address": "456 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Three",
+            "contact_email": "contact@supplierthree.com",
+            "contact_phone": "333-444-5555",
+            "address": "789 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Four",
+            "contact_email": "contact@supplierfour.com",
+            "contact_phone": "444-555-6666",
+            "address": "101 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Five",
+            "contact_email": "contact@supplierfive.com",
+            "contact_phone": "555-666-7777",
+            "address": "202 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Six",
+            "contact_email": "contact@suppliersix.com",
+            "contact_phone": "666-777-8888",
+            "address": "303 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Seven",
+            "contact_email": "contact@supplierseven.com",
+            "contact_phone": "777-888-9999",
+            "address": "404 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Eight",
+            "contact_email": "contact@suppliereight.com",
+            "contact_phone": "888-999-0000",
+            "address": "505 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Nine",
+            "contact_email": "contact@suppliernine.com",
+            "contact_phone": "999-000-1111",
+            "address": "606 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Ten",
+            "contact_email": "contact@supplierten.com",
+            "contact_phone": "000-111-2222",
+            "address": "707 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Eleven",
+            "contact_email": "contact@supplier11.com",
+            "contact_phone": "111-222-3334",
+            "address": "808 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Twelve",
+            "contact_email": "contact@supplier12.com",
+            "contact_phone": "222-333-4445",
+            "address": "909 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Thirteen",
+            "contact_email": "contact@supplier13.com",
+            "contact_phone": "333-444-5556",
+            "address": "1010 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Fourteen",
+            "contact_email": "contact@supplier14.com",
+            "contact_phone": "444-555-6667",
+            "address": "1111 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Fifteen",
+            "contact_email": "contact@supplier15.com",
+            "contact_phone": "555-666-7778",
+            "address": "1212 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Sixteen",
+            "contact_email": "contact@supplier16.com",
+            "contact_phone": "666-777-8889",
+            "address": "1313 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Seventeen",
+            "contact_email": "contact@supplier17.com",
+            "contact_phone": "777-888-9990",
+            "address": "1414 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Eighteen",
+            "contact_email": "contact@supplier18.com",
+            "contact_phone": "888-999-0001",
+            "address": "1515 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Nineteen",
+            "contact_email": "contact@supplier19.com",
+            "contact_phone": "999-000-1112",
+            "address": "1616 Supplier St, Springfield"
+        },
+        {
+            "supplier_name": "Supplier Twenty",
+            "contact_email": "contact@supplier20.com",
+            "contact_phone": "000-111-2223",
+            "address": "1717 Supplier St, Springfield"
+        }
+    ],
+    "products": [
+        {
+            "product_name": "Margherita Pizza",
+            "category": "Pizza",
+            "price": 8.99,
+            "size": "Medium",
+            "supplier_id": 1
+        },
+        {
+            "product_name": "Pepperoni Pizza",
+            "category": "Pizza",
+            "price": 9.99,
+            "size": "Large",
+            "supplier_id": 1
+        },
+        {
+            "product_name": "Veggie Pizza",
+            "category": "Pizza",
+            "price": 7.99,
+            "size": "Small",
+            "supplier_id": 2
+        },
+        {
+            "product_name": "BBQ Chicken Pizza",
+            "category": "Pizza",
+            "price": 10.99,
+            "size": "Medium",
+            "supplier_id": 2
+        },
+        {
+            "product_name": "Hawaiian Pizza",
+            "category": "Pizza",
+            "price": 11.99,
+            "size": "Large",
+            "supplier_id": 3
+        },
+        {
+            "product_name": "Meat Lovers Pizza",
+            "category": "Pizza",
+            "price": 12.99,
+            "size": "Large",
+            "supplier_id": 3
+        },
+        {
+            "product_name": "Cheese Pizza",
+            "category": "Pizza",
+            "price": 6.99,
+            "size": "Small",
+            "supplier_id": 4
+        },
+        {
+            "product_name": "Buffalo Chicken Pizza",
+            "category": "Pizza",
+            "price": 10.99,
+            "size": "Medium",
+            "supplier_id": 4
+        },
+        {
+            "product_name": "Spinach & Feta Pizza",
+            "category": "Pizza",
+            "price": 9.49,
+            "size": "Medium",
+            "supplier_id": 5
+        },
+        {
+            "product_name": "Pesto Veggie Pizza",
+            "category": "Pizza",
+            "price": 9.99,
+            "size": "Large",
+            "supplier_id": 5
+        },
+        {
+            "product_name": "Garlic Chicken Pizza",
+            "category": "Pizza",
+            "price": 11.49,
+            "size": "Large",
+            "supplier_id": 6
+        },
+        {
+            "product_name": "Four Cheese Pizza",
+            "category": "Pizza",
+            "price": 10.49,
+            "size": "Medium",
+            "supplier_id": 6
+        },
+        {
+            "product_name": "Taco Pizza",
+            "category": "Pizza",
+            "price": 12.49,
+            "size": "Large",
+            "supplier_id": 7
+        },
+        {
+            "product_name": "Philly Cheese Steak Pizza",
+            "category": "Pizza",
+            "price": 11.99,
+            "size": "Medium",
+            "supplier_id": 7
+        },
+        {
+            "product_name": "Buffalo Veggie Pizza",
+            "category": "Pizza",
+            "price": 9.99,
+            "size": "Small",
+            "supplier_id": 8
+        },
+        {
+            "product_name": "Chicken Alfredo Pizza",
+            "category": "Pizza",
+            "price": 12.99,
+            "size": "Large",
+            "supplier_id": 8
+        },
+        {
+            "product_name": "Mediterranean Pizza",
+            "category": "Pizza",
+            "price": 10.99,
+            "size": "Medium",
+            "supplier_id": 9
+        },
+        {
+            "product_name": "Caprese Pizza",
+            "category": "Pizza",
+            "price": 9.49,
+            "size": "Small",
+            "supplier_id": 9
+        },
+        {
+            "product_name": "Sicilian Pizza",
+            "category": "Pizza",
+            "price": 11.99,
+            "size": "Large",
+            "supplier_id": 10
+        },
+        {
+            "product_name": "Dessert Pizza",
+            "category": "Dessert",
+            "price": 8.99,
+            "size": "Medium",
+            "supplier_id": 10
+        }
+    ],
+    "orders": [
+        {
+            "customer_id": 1,
+            "order_date": "2024-01-01",
+            "total_amount": 25.99,
+            "employee_id": 1
+        },
+        {
+            "customer_id": 2,
+            "order_date": "2024-01-02",
+            "total_amount": 30.99,
+            "employee_id": 2
+        },
+        {
+            "customer_id": 3,
+            "order_date": "2024-01-03",
+            "total_amount": 15.99,
+            "employee_id": 3
+        },
+        {
+            "customer_id": 4,
+            "order_date": "2024-01-04",
+            "total_amount": 20.99,
+            "employee_id": 4
+        },
+        {
+            "customer_id": 5,
+            "order_date": "2024-01-05",
+            "total_amount": 35.99,
+            "employee_id": 5
+        },
+        {
+            "customer_id": 6,
+            "order_date": "2024-01-06",
+            "total_amount": 40.99,
+            "employee_id": 6
+        },
+        {
+            "customer_id": 7,
+            "order_date": "2024-01-07",
+            "total_amount": 22.99,
+            "employee_id": 7
+        },
+        {
+            "customer_id": 8,
+            "order_date": "2024-01-08",
+            "total_amount": 18.99,
+            "employee_id": 8
+        },
+        {
+            "customer_id": 9,
+            "order_date": "2024-01-09",
+            "total_amount": 27.99,
+            "employee_id": 9
+        },
+        {
+            "customer_id": 10,
+            "order_date": "2024-01-10",
+            "total_amount": 32.99,
+            "employee_id": 10
+        },
+        {
+            "customer_id": 11,
+            "order_date": "2024-01-11",
+            "total_amount": 29.99,
+            "employee_id": 1
+        },
+        {
+            "customer_id": 12,
+            "order_date": "2024-01-12",
+            "total_amount": 24.99,
+            "employee_id": 2
+        },
+        {
+            "customer_id": 13,
+            "order_date": "2024-01-13",
+            "total_amount": 31.99,
+            "employee_id": 3
+        },
+        {
+            "customer_id": 14,
+            "order_date": "2024-01-14",
+            "total_amount": 26.99,
+            "employee_id": 4
+        },
+        {
+            "customer_id": 15,
+            "order_date": "2024-01-15",
+            "total_amount": 33.99,
+            "employee_id": 5
+        },
+        {
+            "customer_id": 16,
+            "order_date": "2024-01-16",
+            "total_amount": 28.99,
+            "employee_id": 6
+        },
+        {
+            "customer_id": 17,
+            "order_date": "2024-01-17",
+            "total_amount": 21.99,
+            "employee_id": 7
+        },
+        {
+            "customer_id": 18,
+            "order_date": "2024-01-18",
+            "total_amount": 19.99,
+            "employee_id": 8
+        },
+        {
+            "customer_id": 19,
+            "order_date": "2024-01-19",
+            "total_amount": 23.99,
+            "employee_id": 9
+        },
+        {
+            "customer_id": 20,
+            "order_date": "2024-01-20",
+            "total_amount": 34.99,
+            "employee_id": 10
+        }
+    ],
+    "discounts": [
+        {
+            "discount_name": "New Year Discount",
+            "discount_percent": 10.00,
+            "product_id": 1,
+            "order_id": null
+        },
+        {
+            "discount_name": "Spring Sale",
+            "discount_percent": 15.00,
+            "product_id": 2,
+            "order_id": null
+        },
+        {
+            "discount_name": "Summer Special",
+            "discount_percent": 20.00,
+            "product_id": 3,
+            "order_id": null
+        },
+        {
+            "discount_name": "Fall Discount",
+            "discount_percent": 5.00,
+            "product_id": 4,
+            "order_id": null
+        },
+        {
+            "discount_name": "Winter Warm-Up",
+            "discount_percent": 10.00,
+            "product_id": 5,
+            "order_id": null
+        },
+        {
+            "discount_name": "Buy One Get One",
+            "discount_percent": 50.00,
+            "product_id": 6,
+            "order_id": null
+        },
+        {
+            "discount_name": "Loyalty Discount",
+            "discount_percent": 10.00,
+            "product_id": 7,
+            "order_id": null
+        },
+        {
+            "discount_name": "Referral Discount",
+            "discount_percent": 15.00,
+            "product_id": 8,
+            "order_id": null
+        },
+        {
+            "discount_name": "Happy Hour Discount",
+            "discount_percent": 20.00,
+            "product_id": 9,
+            "order_id": null
+        },
+        {
+            "discount_name": "Weekend Special",
+            "discount_percent": 25.00,
+            "product_id": 10,
+            "order_id": null
+        },
+        {
+            "discount_name": "Holiday Discount",
+            "discount_percent": 30.00,
+            "product_id": 1,
+            "order_id": null
+        },
+        {
+            "discount_name": "Flash Sale",
+            "discount_percent": 40.00,
+            "product_id": 2,
+            "order_id": null
+        },
+        {
+            "discount_name": "Member Discount",
+            "discount_percent": 10.00,
+            "product_id": 3,
+            "order_id": null
+        },
+        {
+            "discount_name": "Student Discount",
+            "discount_percent": 15.00,
+            "product_id": 4,
+            "order_id": null
+        },
+        {
+            "discount_name": "Senior Discount",
+            "discount_percent": 20.00,
+            "product_id": 5,
+            "order_id": null
+        },
+        {
+            "discount_name": "Family Meal Discount",
+            "discount_percent": 10.00,
+            "product_id": 6,
+            "order_id": null
+        },
+        {
+            "discount_name": "Group Order Discount",
+            "discount_percent": 15.00,
+            "product_id": 7,
+            "order_id": null
+        },
+        {
+            "discount_name": "Birthday Discount",
+            "discount_percent": 20.00,
+            "product_id": 8,
+            "order_id": null
+        },
+        {
+            "discount_name": "Anniversary Discount",
+            "discount_percent": 25.00,
+            "product_id": 9,
+            "order_id": null
+        },
+        {
+            "discount_name": "Seasonal Discount",
+            "discount_percent": 30.00,
+            "product_id": 10,
+            "order_id": null
+        },
+            {
+                "discount_name": "Clearance Sale",
+                "discount_percent": 50.00,
+                "product_id": 1,
+                "order_id": null
+            }
+    ]
+}
