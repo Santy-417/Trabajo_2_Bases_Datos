@@ -3,15 +3,14 @@ from app.models import CustomerCreate, Customer, EmployeeCreate, Employee, Suppl
 from app.database import get_db_connection
 from typing import List
 import mysql.connector
+from datetime import date
 
 router = APIRouter()
 
-# Customer endpoints
 @router.post("/customers/", response_model=Customer, tags=["Customers"])
 def create_customer(customer: CustomerCreate):
     conn = get_db_connection()
     cursor = conn.cursor()
-    
     try:
         query = """
         INSERT INTO customers (full_name, email, phone, address)
@@ -34,7 +33,6 @@ def create_customer(customer: CustomerCreate):
 def list_customers():
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
-    
     try:
         query = "SELECT * FROM customers"
         cursor.execute(query)
@@ -50,7 +48,6 @@ def list_customers():
 def create_customers_bulk(customers: List[CustomerCreate]):
     conn = get_db_connection()
     cursor = conn.cursor()
-    
     try:
         query = """
         INSERT INTO customers (full_name, email, phone, address)
@@ -61,11 +58,9 @@ def create_customers_bulk(customers: List[CustomerCreate]):
         cursor.executemany(query, values)
         conn.commit()
         
-        # Fetch the last inserted id
         cursor.execute("SELECT LAST_INSERT_ID()")
         last_id = cursor.fetchone()[0]
         
-        # Calculate the ids of all inserted customers
         customer_ids = range(last_id - len(customers) + 1, last_id + 1)
         
         return [Customer(customer_id=cid, **c.dict()) for cid, c in zip(customer_ids, customers)]
@@ -75,12 +70,11 @@ def create_customers_bulk(customers: List[CustomerCreate]):
         cursor.close()
         conn.close()
 
-# Employee endpoints
+
 @router.post("/employees/", response_model=Employee, tags=["Employees"])
 def create_employee(employee: EmployeeCreate):
     conn = get_db_connection()
     cursor = conn.cursor()
-    
     try:
         query = """
         INSERT INTO employees (full_name, position, hire_date, salary)
@@ -103,7 +97,6 @@ def create_employee(employee: EmployeeCreate):
 def list_employees():
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
-    
     try:
         query = "SELECT * FROM employees"
         cursor.execute(query)
@@ -119,7 +112,6 @@ def list_employees():
 def create_employees_bulk(employees: List[EmployeeCreate]):
     conn = get_db_connection()
     cursor = conn.cursor()
-    
     try:
         query = """
         INSERT INTO employees (full_name, position, hire_date, salary)
@@ -142,7 +134,7 @@ def create_employees_bulk(employees: List[EmployeeCreate]):
         cursor.close()
         conn.close()
 
-# Supplier endpoints
+
 @router.post("/suppliers/", response_model=Supplier, tags=["Suppliers"])
 def create_supplier(supplier: SupplierCreate):
     conn = get_db_connection()
@@ -209,15 +201,13 @@ def create_suppliers_bulk(suppliers: List[SupplierCreate]):
         cursor.close()
         conn.close()
 
-# Product endpoints
+
 @router.post("/products/", response_model=Product, tags=["Products"])
 def create_product(product: ProductCreate):
     conn = get_db_connection()
     cursor = conn.cursor()
-    
     try:
         if product.supplier_id is not None:
-            # Check if the supplier exists
             cursor.execute("SELECT supplier_id FROM suppliers WHERE supplier_id = %s", (product.supplier_id,))
             if not cursor.fetchone():
                 raise HTTPException(status_code=400, detail=f"Supplier with id {product.supplier_id} does not exist")
@@ -244,7 +234,6 @@ def create_product(product: ProductCreate):
 def list_products():
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
-    
     try:
         query = "SELECT * FROM products"
         cursor.execute(query)
@@ -260,7 +249,6 @@ def list_products():
 def create_products_bulk(products: List[ProductCreate]):
     conn = get_db_connection()
     cursor = conn.cursor()
-    
     try:
         query = """
         INSERT INTO products (product_name, category, price, size, supplier_id)
@@ -283,12 +271,10 @@ def create_products_bulk(products: List[ProductCreate]):
         cursor.close()
         conn.close()
 
-# Order endpoints
 @router.post("/orders/", response_model=Order, tags=["Orders"])
 def create_order(order: OrderCreate):
     conn = get_db_connection()
     cursor = conn.cursor()
-    
     try:
         query = """
         INSERT INTO orders (customer_id, order_date, total_amount, employee_id)
@@ -311,7 +297,6 @@ def create_order(order: OrderCreate):
 def list_orders():
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
-    
     try:
         query = "SELECT * FROM orders"
         cursor.execute(query)
@@ -327,7 +312,6 @@ def list_orders():
 def create_orders_bulk(orders: List[OrderCreate]):
     conn = get_db_connection()
     cursor = conn.cursor()
-    
     try:
         query = """
         INSERT INTO orders (customer_id, order_date, total_amount, employee_id)
@@ -350,7 +334,6 @@ def create_orders_bulk(orders: List[OrderCreate]):
         cursor.close()
         conn.close()
 
-# Discount endpoints
 @router.post("/discounts/", response_model=Discount, tags=["Discounts"])
 def create_discount(discount: DiscountCreate):
     conn = get_db_connection()
@@ -394,7 +377,6 @@ def list_discounts():
 def create_discounts_bulk(discounts: List[DiscountCreate]):
     conn = get_db_connection()
     cursor = conn.cursor()
-    
     try:
         query = """
         INSERT INTO discounts (discount_name, discount_percent, product_id, order_id)
@@ -411,6 +393,279 @@ def create_discounts_bulk(discounts: List[DiscountCreate]):
         discount_ids = range(last_id - len(discounts) + 1, last_id + 1)
         
         return [Discount(discount_id=did, **d.dict()) for did, d in zip(discount_ids, discounts)]
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cursor.close()
+        conn.close()
+
+@router.get("/Query1/", tags=["Query1: Get customer info by id"])
+def get_customer_by_id(customer_id: int):
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    try:
+        query = f"SELECT * FROM customers WHERE customer_id = {customer_id}"
+        cursor.execute(query)
+        customers = cursor.fetchall()
+        return [Customer(**customer) for customer in customers]
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cursor.close()
+        conn.close()
+
+@router.get("/Query2/", tags=["Query2: Get employees with out orders"])
+def get_employees_without_orders():
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    
+    try:
+        query = f"SELECT employees.* from employees LEFT join orders on employees.employee_id = orders.employee_id where orders.order_id IS NULL"
+        cursor.execute(query)
+        employees = cursor.fetchall()
+        return [Employee(**employee) for employee in employees]
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cursor.close()
+        conn.close()
+
+@router.get("/Query3/", tags=["Query3: Get customers with out orders"])
+def get_customers_without_orders():
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    
+    try:
+        query = f"SELECT customers.* FROM orders RIGHT join customers on customers.customer_id = orders.customer_id where orders.order_id IS NULL"
+        cursor.execute(query)
+        customers = cursor.fetchall()
+        return [Customer(**customer) for customer in customers]
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cursor.close()
+        conn.close()
+
+@router.get("/Query4/", tags=["Query4: Get MAX discount"])
+def get_max_discount():
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    
+    try:
+        query = f"SELECT MAX(discounts.discount_percent) FROM discounts"
+        cursor.execute(query)
+        discount = cursor.fetchone()
+        return discount
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cursor.close()
+        conn.close()
+
+@router.get("/Query5/", tags=["Query5: Get MIN discount"])
+def get_min_discount():
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    
+    try:
+        query = f"SELECT MIN(discounts.discount_percent) FROM discounts"
+        cursor.execute(query)
+        discount = cursor.fetchone()
+        return discount
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cursor.close()
+        conn.close()
+
+@router.get("/Query6/", tags=["Query6: Get average discount"])
+def get_average_discount():
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    
+    try:
+        query = f"SELECT AVG(discounts.discount_percent) FROM discounts"
+        cursor.execute(query)
+        discount = cursor.fetchone()
+        return discount
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cursor.close()
+        conn.close()
+
+@router.get("/Query7/", tags=["Query7: Get Orders before a date"])
+def get_orders_before_date(date: date):
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    
+    try:
+        query = f"SELECT * FROM orders WHERE order_date <= '{date}'"
+        cursor.execute(query)
+        orders = cursor.fetchall()
+        return [Order(**order) for order in orders]
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cursor.close()
+        conn.close()
+
+@router.get("/Query8/", tags=["Query8: Get Orders after a date"])
+def get_orders_after_date(date: date):
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    try:
+        query = f"SELECT * FROM orders WHERE order_date >= '{date}'"
+        cursor.execute(query)
+        orders = cursor.fetchall()
+        return [Order(**order) for order in orders]
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cursor.close()
+        conn.close()
+
+@router.get("/Query9/", tags=["Query9: Get Orders between two dates"])
+def get_orders_between_dates(start_date: date, end_date: date):
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    try:
+        query = f"SELECT * FROM orders WHERE order_date BETWEEN '{start_date}' AND '{end_date}'"
+        cursor.execute(query)
+        orders = cursor.fetchall()
+        return [Order(**order) for order in orders]
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cursor.close()
+        conn.close()
+
+
+@router.get("/Query10/", tags=["Query10: Get total orders by customer"])
+def get_total_orders_by_customer(customer_id: int):
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    
+    try:
+        query = """
+        SELECT customers.full_name, COUNT(orders.order_id) AS total_orders
+        FROM customers
+        LEFT JOIN orders ON customers.customer_id = orders.customer_id
+        WHERE customers.customer_id = %s
+        GROUP BY customers.full_name
+        """
+        cursor.execute(query, (customer_id,))
+        result = cursor.fetchone()
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cursor.close()
+        conn.close()
+
+
+@router.get("/Query11/", tags=["Query11: Get employees with total sales"])
+def get_employees_with_total_sales():
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    
+    try:
+        query = """
+        SELECT employees.full_name, SUM(orders.total_amount) AS total_sales
+        FROM employees
+        LEFT JOIN orders ON employees.employee_id = orders.employee_id
+        GROUP BY employees.full_name
+        """
+        cursor.execute(query)
+        employees_sales = cursor.fetchall()
+        return employees_sales
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cursor.close()
+        conn.close()
+
+
+@router.get("/Query12/", tags=["Query12: Get products with discounts"])
+def get_products_with_discounts():
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    
+    try:
+        query = """
+        SELECT products.product_name, discounts.discount_name, discounts.discount_percent
+        FROM products
+        LEFT JOIN discounts ON products.product_id = discounts.product_id
+        """
+        cursor.execute(query)
+        products_discounts = cursor.fetchall()
+        return products_discounts
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cursor.close()
+        conn.close()
+
+
+@router.get("/Query13/", tags=["Query13: Get average order amount by employee"])
+def get_average_order_amount_by_employee(employee_id: int):
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    
+    try:
+        query = """
+        SELECT employees.full_name, AVG(orders.total_amount) AS average_order_amount
+        FROM employees
+        INNER JOIN orders ON employees.employee_id = orders.employee_id
+        WHERE employees.employee_id = %s
+        GROUP BY employees.full_name
+        """
+        cursor.execute(query, (employee_id,))
+        result = cursor.fetchone()
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cursor.close()
+        conn.close()
+
+
+@router.get("/Query14/{customer_id}/", tags=["Query14: Get customers with their last order date by ID"])
+def get_customers_with_last_order(customer_id: int):
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    try:
+        query = """
+        SELECT customers.full_name, MAX(orders.order_date) AS last_order_date
+        FROM customers
+        LEFT JOIN orders ON customers.customer_id = orders.customer_id
+        WHERE customers.customer_id = %s
+        GROUP BY customers.full_name
+        """
+        cursor.execute(query, (customer_id,))
+        customers_last_order = cursor.fetchall()
+        return customers_last_order
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cursor.close()
+        conn.close()
+
+@router.get("/Query15/", tags=["Query15: Get total products by supplier"])
+def get_total_products_by_supplier():
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    try:
+        query = """
+        SELECT suppliers.supplier_name, COUNT(products.product_id) AS total_products
+        FROM suppliers
+        LEFT JOIN products ON suppliers.supplier_id = products.supplier_id
+        GROUP BY suppliers.supplier_id, suppliers.supplier_name
+        """
+        cursor.execute(query)
+        results = cursor.fetchall()
+        return results
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     finally:

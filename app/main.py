@@ -9,4 +9,4 @@ app.title = "API Telepizza"
 
 @app.get("/")
 async def root():
-    return {"message": "Bienvenido a la API de Telepizza"}
+    return {"message": "Welcome to the Telepizza API"}
