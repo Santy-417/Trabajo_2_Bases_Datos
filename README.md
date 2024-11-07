@@ -35,10 +35,12 @@ The goal of this project is to provide a simple solution to interact with a data
 - **POST** `/items/`:  
    Inserts a new record into the database. Example request body:
   ```json
-  {
-    "name": "New Item",
-    "description": "Item description"
-  }
+  [
+    {
+      "name": "New Item",
+      "description": "Item description"
+    }
+  ]
   ```
 
 ## Technical Instructions
@@ -51,13 +53,15 @@ The goal of this project is to provide a simple solution to interact with a data
    python -m venv venv
    .\venv\Scripts\Activate
 ```
+
 ##
+
 2. **Install dependencies**
 
-```bash 
+```bash
     pip install -r requirements.txt
 ```
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
